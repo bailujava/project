@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MyHtml.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+  <script type="text/javascript" src="jquery-1.8.3.js"></script>
+  <script type="text/javascript" >
+
+	function nameSize(){
+			
+		if($("#1").val().length<7){
+			$("#5").html("不满足长度要求哦").css("color","red");
+			}else{
+			$("#5").html("√").css("color","green");
+		}}
+		function passwordSize(){
+
+		if($("#2").val().length!=6){
+			$("#6").html("密码长度不为6").css("color","red");
+			}else{$("#6").html("√").css("color","green");}
+			}
+		function password2Size(){
+		
+		if($("#2").val()!=$("#3").val()){
+		   $("#7").html("两次输入不一致").css("color","red");}
+			else{ $("#7").html("√").css("color","green");
+			}
+			}
+
+
+	</script>
+  </head>
+  
+  <body>
+    <form action="xxAction" method="post"  >
+   name: &nbsp;&nbsp;<input type="text" size="50px"  name="name"  id="1" onBlur="nameSize()"> <span id="5" >**</span><br>
+   password: &nbsp;&nbsp;&nbsp;<input type="text" size="50px" name="password" id="2" onBlur="passwordSize()"><span id="6"> **</span><br>
+   password2: &nbsp;&nbsp;<input type="text" size="50px" name="password2" id="3" onBlur="password2Size()"><span id="7"> **</span><br>
+    <input type="submit" value="点这" >
+    
+    </form>
+</body>
+</html>

@@ -1,0 +1,12 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-ear" name="Redis_Test:ear exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/Redis_Test_ear_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="Redis_Test/javaeeApplication/javaEEApplication" />
+      <element id="directory" name="web.war">
+        <element id="artifact" artifact-name="Redis_Test:war exploded" />
+        <element id="dir-copy" path="$PROJECT_DIR$/web" />
+      </element>
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,15 @@
+package test;
+
+import org.apache.log4j.lf5.util.Resource;
+import org.junit.Test;
+
+public class TestTeacherDao {
+   @Test
+	public void Test1()throws Exception{
+	   SqlSessionFactoryBuilder builder = new SqlSessionFactoryBuilder();
+	   Reader reader=Resources.getResourceAsReader("mybatis-config.xml");\
+	   SqlSessionFactory factory=builder.build(reader);
+	   SqlSession session=factory.openSession();
+	   
+   }
+}

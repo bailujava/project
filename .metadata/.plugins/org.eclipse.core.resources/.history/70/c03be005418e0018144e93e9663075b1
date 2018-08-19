@@ -1,0 +1,7 @@
+package dao;
+
+import cha;
+
+public class chaImpl extends cha {
+
+}

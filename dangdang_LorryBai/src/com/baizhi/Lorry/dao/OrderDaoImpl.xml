@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.baizhi.Lorry.dao.BookDao" >
+
+<select id="queryCurrval" parameterType="java.lang.Integer" resultType="com.baizhi.Lorry.entity.D_order">
+
+   <![CDATA[select * from D_order where id=s.currval]]>
+</select>
+
+<insert id="add"  parameterType="com.baizhi.Lorry.entity.D_receivce_address">
+<selectKey keyProperty="id" resultType="java.lang.Integer" order="BEFORE">select ordernum.nextval from dual</selectKey>
+   <![CDATA[insert into D_receivce_address values(#{id},#{user_id},sysdate,null,#{total_price},#{receive_name},#{full_address},#{postal_code},#{mobile},#{phone})]]>
+</insert>
+
+</mapper>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+
+<struts>
+	
+	
+    <package name="main-package" namespace="/main" extends="struts-default">
+    	
+		<action name="category" class="com.imvcc.actions.main.CategoryAction">
+			<result name="success">/WEB-INF/main/category.jsp</result>
+		</action>
+		
+		<action name="new" class="com.imvcc.actions.main.NewAction">
+			<param name="size">8</param>
+			<result name="success">/WEB-INF/main/new.jsp</result>
+		</action>
+		
+		<action name="hot" class="com.imvcc.actions.main.HotAction">
+			<param name="size">8</param>
+			<result name="success">/WEB-INF/main/hot.jsp</result>
+		</action>
+		
+		<action name="recommend" class="com.imvcc.actions.main.RecommendAction">
+			<param name="size">2</param>
+			<result name="success">/WEB-INF/main/recommend.jsp</result>
+		</action>
+		
+		<action name="hotboard" class="com.imvcc.actions.main.NewBoardAction">
+			<param name="size">8</param>
+			<result name="success">/WEB-INF/main/hotBoard.jsp</result>
+		</action>
+		
+		<action name="toMain">
+			<result name="success">/WEB-INF/main/main.jsp</result>
+		</action>
+		
+		<action name="bookList" class="com.imvcc.actions.main.BookListAction">
+			<param name="pageSize">5</param>
+			<result name="success">/WEB-INF/main/bookList.jsp</result>
+			<result name="main" type="redirectAction">
+				<param name="actionName">toMain</param>
+				<param name="namespace">/main</param>
+			</result>
+		</action>
+		
+		<action name="product" class="com.imvcc.actions.main.ProductAction">
+			<result name="success">/WEB-INF/main/product.jsp</result>
+		</action>
+    </package>
+ </struts>

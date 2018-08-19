@@ -1,0 +1,19 @@
+package SJJJ;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class DDD {
+public static void main(String[] args) {
+	
+
+	try {
+		Date date = new java.util.Date();
+		System.out.println(date);
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+	
+}
+}

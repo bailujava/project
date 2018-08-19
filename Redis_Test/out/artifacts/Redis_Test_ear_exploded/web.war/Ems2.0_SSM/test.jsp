@@ -1,0 +1,44 @@
+<%@page import="java.util.Date"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<title>login</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" content="MSHTML 6.00.2900.3059" name="GENERATOR"/>
+		<link rel="stylesheet" type="text/css"
+			href="${pageContext.request.contextPath }/css/style.css" />
+		<link   rel="stylesheet" href="${pageContext.request.contextPath }/themes/icon.css">
+		<link   rel="stylesheet" href="${pageContext.request.contextPath }/themes/default/easyui.css">
+		<script type="text/javascript" src="${pageContext.request.contextPath }/jquery.min.js"></script>
+		<script type="text/javascript" src="${pageContext.request.contextPath }/jquery.easyui.min.js"></script>
+		<script type="text/javascript">
+		$(function(){
+			$('#dg').datagrid({    
+			    url:'abc.json',
+			    fitColumns:true,
+			    pagination:true,
+			    columns:[[    
+			        {field:'code',title:'代码',width:100},    
+			        {field:'name',title:'名称',width:100},    
+			        {field:'price',title:'价格',width:100,align:'right'},
+			        {field:'address',title:'产地',width:100,align:'right',
+			        	formatter:function(value,row,index){
+			        		return "东莞";
+			        	}}
+			    ]]    
+			});  
+
+		});
+		
+		</script>
+	</head>
+
+	<body>
+<div id="dd" class="easyui-dialog" title="My Dialog" style="width:400px;height:200px;"   
+        data-options="iconCls:'icon-save',maximizable:true,modal:true">   
+  
+</div> 
+<table id="dg"></table>  
+	</body>
+</html>

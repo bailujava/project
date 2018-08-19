@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<proxool>
+	<alias>pool1</alias>
+	<driver-url>jdbc:mysql://localhost:3306/dangdang</driver-url>
+	<driver-class>com.mysql.jdbc.Driver</driver-class>
+	<driver-properties>
+		<property name="user" value="root" />
+		<property name="password" value="root" />
+	</driver-properties>
+	<house-keeping-sleep-time>90000</house-keeping-sleep-time>
+	<maximum-new-connections>100</maximum-new-connections>
+	<maximum-connection-count>50</maximum-connection-count>
+	<minimum-connection-count>5</minimum-connection-count>
+	<prototype-count>5</prototype-count>
+</proxool>

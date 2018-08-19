@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+
+<struts>
+
+    <package name="order-package" namespace="/order" extends="dangdang-default">
+    	<action name="toOrder" class="com.imvcc.actions.order.OrderAction" method="toOrder">
+    		<result name="success">/WEB-INF/order/orderInfo.jsp</result>
+    	</action>
+    	
+    	<action name="toInputAddress" class="com.imvcc.actions.order.OrderAction" method="toInputAddress">
+    		<result name="user.login" type="redirectAction">
+    			<param name="actionName">toLogin</param>
+    			<param name="namespace">/authorize</param>
+    		</result>
+    		<result name="user.active" type="redirectAction">
+    			<param name="actionName">toVerify</param>
+    			<param name="namespace">/authorize</param>
+    		</result>
+    		<result name="success">/WEB-INF/order/addressForm.jsp</result>
+    		<interceptor-ref name="tranStack"></interceptor-ref>
+    	</action>
+    	
+    	<action name="produceOrder" class="com.imvcc.actions.order.OrderAction" method="produceOrder">
+    		<result name="error">/WEB-INF/error/error.jsp</result>
+    		<result name="success">/WEB-INF/order/orderOk.jsp</result>
+    		<result name="input">/WEB-INF/order/addressForm.jsp</result>
+    		<interceptor-ref name="tokenSession"></interceptor-ref>
+    		<interceptor-ref name="tranStack"></interceptor-ref>
+    	</action>
+    </package>
+ </struts>

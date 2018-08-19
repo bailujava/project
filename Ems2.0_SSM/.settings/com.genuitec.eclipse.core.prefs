@@ -1,0 +1,3 @@
+eclipse.preferences.version=1
+validator.Checked=src/spring-mvc.xml,WebRoot/jquery.min.js,WebRoot/js/jquery.js
+validator.Unchecked=

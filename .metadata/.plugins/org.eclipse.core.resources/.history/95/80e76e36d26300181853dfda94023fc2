@@ -1,0 +1,13 @@
+package SJJJ;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class DDD {
+public static void main(String[] args) throws ParseException {
+	SimpleDateFormat s = new SimpleDateFormat("yyyy-MM--dd");
+	Date parse = s.parse("2018-05-05");
+	System.out.println(parse);
+}
+}

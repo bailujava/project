@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+
+<struts>
+	<package name="jsonAuthorize" namespace="/authorize" extends="json-default">
+		
+		<!-- ajax验证码验证 -->
+		<action name="verifyCode" class="com.imvcc.actions.ImageValidateAction" method="verfiyValidateCode">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- ajax验证邮件可用性 -->
+		<action name="verifyEmail" class="com.imvcc.actions.authorize.AuthorizeAction" method="verifyEmail">
+			<result name="success" type="json"></result>
+		</action>
+	</package>
+	
+    <package name="authorize" namespace="/authorize" extends="dangdang-default">
+    
+		<!-- 转向注册表单 -->
+		<action name="toRegist" >
+    		<result name="success">/WEB-INF/authorize/registForm.jsp</result>
+    	</action>
+    	<!-- ajax加载登录 -->
+    	<action name="loginInfo">
+    		<result name=
+    		"success">/WEB-INF/authorize/loginInfo.jsp</result>
+    	</action>
+    	<!-- 转向到激活 -->
+    	<action name="toVerify" >
+    		<result name="success">/WEB-INF/authorize/verifyForm.jsp</result>
+    	</action>
+    	<!-- 转向到用户注册界面 -->
+		<action name="toLogin" >
+			<result name="success">/WEB-INF/authorize/loginForm.jsp</result>
+		</action>
+    	<!-- 注册处理 -->
+    	<action name="regist" class="com.imvcc.actions.authorize.AuthorizeAction" method="regist">
+    		<result name="success" type="redirectAction">toVerify</result>
+    		<result name="input">/WEB-INF/authorize/registForm.jsp</result>
+    		<result name="invalid.token" type="redirectAction">toRegist</result>
+    		<interceptor-ref name="tokenSession"></interceptor-ref>
+    		<interceptor-ref name="tranStack"></interceptor-ref>
+    	</action>
+
+    	<!-- 激活处理 -->
+    	<action name="verify" class="com.imvcc.actions.authorize.AuthorizeVerifyAction" method="verify">
+    		<result name="success">/WEB-INF/authorize/registOk.jsp</result>
+    		<result name="input">/WEB-INF/authorize/verifyForm.jsp</result>
+    		<result name="redirect"  type="redirectAction">toRedirect</result>
+    		<result name="invalid.token" type="redirectAction">toVerify</result>
+			<interceptor-ref name="tokenSession"></interceptor-ref>
+    		<interceptor-ref name="tranStack"></interceptor-ref>
+			
+    	</action>
+    	
+       	<!-- 生成验证码 -->
+		<action name="imageCode" class="com.imvcc.actions.ImageValidateAction">
+			<result name="success" type="stream">
+				<param name="inputName">is</param>
+				<param name="contentDisposition">inline;fileName="winter.gif"</param>
+			</result>
+		</action>
+		
+		
+		<!-- 处理登录 -->
+		<action name="login" class="com.imvcc.actions.authorize.LoginAction" method="login">
+			<result name="success" type="redirectAction">../main/toMain</result>
+			<result name="error">/WEB-INF/authorize/loginForm.jsp</result>
+			<result name="unactived" type="redirectAction">toVerify</result>
+			<result name="input">/WEB-INF/authorize/loginForm.jsp</result>
+			<result name="redirect"  type="redirectAction">toRedirect</result>
+			<result name="invalid.token" type="redirectAction">toLogin</result>
+			<interceptor-ref name="tokenSession"></interceptor-ref>
+    		<interceptor-ref name="tranStack"></interceptor-ref>
+    		
+		</action>
+		<!-- 转向 -->
+		<action name="toRedirect" class="com.imvcc.actions.authorize.RedirectAction">
+			<result name="success">/WEB-INF/authorize/redirect.jsp</result>
+		</action>
+		<!-- 注销 -->
+    	<action name="logout" class="com.imvcc.actions.authorize.AuthorizeAction" method="logout">
+    		<result name="success" type="redirectAction">
+    			<!-- 跨包访问时的写法 -->
+    			<param name="actionName">toMain</param>
+    			<param name="namespace">/main</param>
+    		</result>
+    	</action>
+    </package>
+ </struts>

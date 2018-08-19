@@ -1,0 +1,50 @@
+package entity;
+
+import java.io.Serializable;
+import java.util.Date;
+
+public class Teacher implements Serializable{
+private Integer id;
+private String name;
+private Boolean married;
+private Date birthday;
+Teacher(){}
+
+public Teacher(Integer id, String name, Boolean married, Date birthday) {
+	super();
+	this.id = id;
+	this.name = name;
+	this.married = married;
+	this.birthday = birthday;
+}
+
+public int getId() {
+	return id;
+}
+public void setId(int id) {
+	this.id = id;
+}
+public String getName() {
+	return name;
+}
+public void setName(String name) {
+	this.name = name;
+}
+public boolean isMarried() {
+	return married;
+}
+public void setMarried(boolean married) {
+	this.married = married;
+}
+public Date getBirthday() {
+	return birthday;
+}
+public void setBirthday(Date birthday) {
+	this.birthday = birthday;
+}
+@Override
+public String toString() {
+	return "Teacher [id=" + id + ", name=" + name + ", married=" + married
+			+ ", birthday=" + birthday + "]";
+}
+}

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration SYSTEM "http://mybatis.org/dtd/mybatis-3-config.dtd" >
+<!-- mybatis的所有配置都必须定义在configuration标签里 -->
+<configuration>
+   <!-- 配置mybatis运行环境，如果需要连接多个数据库，则需要多个enviroment标签 -->
+   <environments default="d1">
+      <!--配置一个mybatis的运行环境，id属性是这个环境的唯一标识。-->
+      <environment id="d1">
+	     <!--设置mybatis完成数据库操作时事务的提交策略，type属性值为"JDBC",表示用Jdbc事务提交方式提交。-->
+         <transactionManager type="JDBC"></transactionManager>
+		 <!--配置数据库连接，type属性值为“POOLED”，表示使用mybatis内置连接池-->
+         <dataSource type="POOLED">
+           <property name="driver" value=""></property>
+           <property name="url" value=""></property>
+           <property name="username" value=""></property>
+           <property name="password" value=""/>
+         </dataSource>
+      </environment>
+	  
+   </environments>
+   
+   <mappers><mapper resource="dao/mapper.xml"></mapper></mappers>
+   
+</configuration>

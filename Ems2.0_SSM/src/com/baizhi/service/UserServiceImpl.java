@@ -1,0 +1,37 @@
+package com.baizhi.service;
+
+import java.util.List;
+
+import javax.jws.WebService;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.baizhi.dao.UserDao;
+import com.baizhi.entity.SystemException;
+import com.baizhi.entity.User;
+@Service
+public class UserServiceImpl implements UserService{
+	@Autowired
+	private UserDao userDao;
+	
+	@Transactional(propagation=Propagation.SUPPORTS,readOnly=true) 
+	public List<User> findAll() {
+		return userDao.queryAll();
+	}
+	@Transactional(propagation=Propagation.SUPPORTS,readOnly=true)
+
+	public User Login(String name, String password) {
+		User user = userDao.queryOne(name, password);
+		if(user!=null){return user;}
+		else{ throw new SystemException("账户或密码错误");}
+	}
+
+	@Transactional
+	public void register(User user) {
+		userDao.add(user);
+	}
+
+}

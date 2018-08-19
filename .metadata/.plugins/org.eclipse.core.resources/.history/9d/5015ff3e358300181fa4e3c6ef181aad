@@ -1,0 +1,4 @@
+ alter table d_user
+ modify last_login_time bigint(20);
+ 
+ 

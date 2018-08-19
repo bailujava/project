@@ -1,0 +1,21 @@
+package test;
+
+import java.io.Reader;
+
+import javax.annotation.Resources;
+
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.junit.Test;
+
+public class TestTeacherDao {
+   @Test
+	public void Test1()throws Exception{
+	   SqlSessionFactoryBuilder builder = new SqlSessionFactoryBuilder();
+	   Reader reader=Resources.getResourceAsReader("mybatis-config.xml");
+	   SqlSessionFactory factory=builder.build(reader);
+	   SqlSession session=factory.openSession();
+	   
+   }
+}

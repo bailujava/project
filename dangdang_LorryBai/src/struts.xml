@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+
+	<package name="show" extends="struts-default" namespace="/show">
+
+		<action name="Category" class="com.baizhi.Lorry.action.CategoryAction">
+			<result name="success">/main/category.jsp</result>
+		</action>
+
+		<action name="ranbook" class="com.baizhi.Lorry.action.HomeBookAction">
+			<result name="success">/main/recommend.jsp</result>
+		</action>
+
+		<action name="hotbook" class="com.baizhi.Lorry.action.HotBookAction">
+			<result name="success">/main/hot.jsp</result>
+		</action>
+
+		<action name="newbook" class="com.baizhi.Lorry.action.NewBookAction">
+			<result name="success">/main/new.jsp</result>
+		</action>
+
+		<action name="newhotbook" class="com.baizhi.Lorry.action.NewHotBookAction">
+			<result name="success">/main/hotBoard.jsp</result>
+		</action>
+
+		<action name="book" class="com.baizhi.Lorry.action.BookAction">
+			<result name="success">/main/book_list.jsp</result>
+		</action>
+	</package>
+
+	<package name="user" extends="struts-default" namespace="/user">
+		<action name="LoginAction" class="com.baizhi.Lorry.action.LoginAction">
+			<result name="success">/main/main.jsp</result>
+			<result name="false">/user/login_form.jsp</result>
+		</action>
+		<action name="RegisterAction" class="com.baizhi.Lorry.action.RegisterAction">
+			<result name="success">/user/verify_form.jsp</result>
+			<result name="false">/user/register_form.jsp</result>
+			<result name="address">/order/address_form.jsp</result>
+		</action>
+		<action name="useraction" class="com.baizhi.Lorry.action.UserAction">
+			<result>/user/register_form.jsp</result>
+		</action>
+	</package>
+
+	<package name="car" extends="struts-default" namespace="/car">
+		<action name="*" class="com.baizhi.Lorry.action.CartAction"
+			method="{1}">
+			<result name="cartList" type="dispatcher">/cart/cart_list.jsp</result>
+			<result name="false">/user/login_form.jsp</result>
+		</action>
+
+	</package>
+
+	<package name="order" extends="struts-default" namespace="/order">
+		<interceptors>
+			<interceptor name="qiangzhidenglu" class="com.baizhi.Lorry.action.MyInterceptor">
+			</interceptor>
+			<interceptor-stack name="is1">
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+				<interceptor-ref name="qiangzhidenglu"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="is1"></default-interceptor-ref>
+		<global-results><result name="error">/user/login_form.jsp</result></global-results>
+		<action name="address" class="com.baizhi.Lorry.action.AddressAction">
+			<result name="success" type="dispatcher">/order/address_form.jsp</result>
+		</action>
+		<action name="address2" class="com.baizhi.Lorry.action.Address2Action">
+			<result name="success" type="dispatcher">/order/address_form.jsp</result>
+		</action>
+		<action name="orderok" class="com.baizhi.Lorry.action.OrderOkAction">
+			<result name="success" type="dispatcher">/order/order_ok.jsp</result>
+		</action>
+	</package>
+
+
+</struts>

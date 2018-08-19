@@ -1,0 +1,16 @@
+package service;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import dao.Cha;
+
+public class Register {
+	public void XXXXX(){
+	ApplicationContext ctx =new ClassPathXmlApplicationContext("applicationContext.xml");
+	Cha bean = (Cha) ctx.getBean("nn");
+	
+	System.out.println(bean);
+	
+	}
+}

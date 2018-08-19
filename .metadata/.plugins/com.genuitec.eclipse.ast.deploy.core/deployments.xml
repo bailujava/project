@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<deployments>
+  <deployment context-root="/Ems2.0_SSM" deployment-path="D:/apache-tomcat-7.0.64/webapps/Ems2.0_SSM" project-name="Ems2.0_SSM" server-id="tomcat7Server" state="DEPLOYED" type="WEB"/>
+</deployments>

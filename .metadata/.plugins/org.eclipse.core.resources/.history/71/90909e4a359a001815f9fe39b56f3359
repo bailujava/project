@@ -1,0 +1,25 @@
+package com.baizhi.controller;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.validation.constraints.Max;
+
+import org.springframework.web.servlet.HandlerExceptionResolver;
+import org.springframework.web.servlet.ModelAndView;
+
+public class ExceptionController  implements HandlerExceptionResolver{
+
+	@Override
+	public ModelAndView resolveException(HttpServletRequest request,
+			HttpServletResponse response, Object handler, Exception ex) {
+		
+			ModelAndView mav = new ModelAndView();
+			mav.addObject("ex",ex);
+			mav.setViewName("login");
+			if(ex instanceof PasswordException){
+				mav.setViewName("login");
+			}
+		return mav;
+	}
+
+}

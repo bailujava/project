@@ -1,0 +1,59 @@
+package action;
+
+import java.util.Date;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.struts2.ServletActionContext;
+
+import service.LoginService;
+import service.LoginServiceImpl;
+import service.RegisterService;
+import service.RegisterServiceImpl;
+import service.ShowService;
+import service.ShowServiceImpl;
+
+import com.opensymphony.xwork2.ActionSupport;
+
+import entity.Employee;
+
+public class ActionAll extends ActionSupport{
+	private Employee employee;
+	public Employee getEmployee() {
+		return employee;
+	}
+
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
+	}
+
+	public String login(){
+
+		LoginService IS = new LoginServiceImpl();
+		IS.Login(employee.getId());
+		return "success";}
+		
+	public String query(){
+		HttpServletRequest request = ServletActionContext.getRequest();
+		String S = request.getParameter("id");
+		ShowService SS = new ShowServiceImpl();
+		List<Employee> list = SS.Query();
+		return "success";
+	}
+	
+	public String register(){
+		HttpServletRequest request = ServletActionContext.getRequest();
+		String A = request.getParameter("id");
+		String B = request.getParameter("name");
+		String C = request.getParameter("salary");
+		String D = request.getParameter("date");
+		employee.setId(Integer.parseInt(A));
+		employee.setName(B);
+		employee.setSalary(Double.parseDouble(C));
+		employee.setDate(new Date(D));
+		RegisterService RS = new RegisterServiceImpl();
+		RS.Register(employee);
+		return "success";
+	}
+}

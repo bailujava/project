@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.baizhi.Lorry.dao.AddressDao" >
+
+<select id="query" parameterType="java.lang.Integer" resultType="com.baizhi.Lorry.entity.D_receivce_address">
+   <![CDATA[select * from D_RECEIVE_ADDRESS where user_id=#{user_id}]]>
+</select>
+
+<insert id="add"  parameterType="com.baizhi.Lorry.entity.D_receivce_address">
+   <![CDATA[insert into D_RECEIVE_ADDRESS values(#{id},#{user_id},#{receive_name},#{full_address},#{postal_code},#{mobile},#{phone})]]>
+</insert>
+
+<select id="queryone" parameterType="java.lang.Integer" resultType="com.baizhi.Lorry.entity.D_receivce_address">
+   <![CDATA[select * from D_RECEIVE_ADDRESS where id=#{id}]]>
+</select>
+</mapper>

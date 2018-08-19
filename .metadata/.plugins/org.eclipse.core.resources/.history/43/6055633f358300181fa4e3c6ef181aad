@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+
+<struts>
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	<constant name="struts.devMode" value="true" />
+	<include file="struts-authorize.xml"></include>
+	<include file="struts-main.xml"></include>
+	<include file="struts-cart.xml"></include>
+	<include file="struts-order.xml"></include>
+	<package name="dangdang-default" namespace="/" extends="struts-default">
+			<!-- 事务拦截器 -->
+    	<interceptors>
+    		<interceptor name="tranInterceptor" class="com.imvcc.actions.interceptor.TransactionInterceptor">
+    		</interceptor>
+    		<interceptor-stack name="tranStack">
+    			<interceptor-ref name="tranInterceptor"></interceptor-ref>
+    			<interceptor-ref name="defaultStack"></interceptor-ref>
+    		</interceptor-stack>
+    		
+    		<interceptor-stack name="tokenStatck">
+    			<interceptor-ref name="tokenSession"></interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+    		</interceptor-stack>
+    	</interceptors>
+	</package>
+</struts>

@@ -1,0 +1,1 @@
+create table teacher(ID number(5) primary key,NAME varchar2(6),married number(1) default 0);	

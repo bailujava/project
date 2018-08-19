@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.baizhi.Lorry.dao.BookDao" >
+
+<select id="QueryBookByRan"  resultType="com.baizhi.Lorry.entity.D_book">
+   <![CDATA[select * from D_book ]]>
+</select>
+
+<select id="QueryBookBySale"  resultType="com.baizhi.Lorry.entity.D_book">
+   <![CDATA[select * from D_book order by sale_count desc]]>
+</select>
+
+<select id="QueryBookByDate"  resultType="com.baizhi.Lorry.entity.D_book">
+   <![CDATA[select * from D_book order by publish_time desc]]>
+</select>
+
+<select id="QueryBookBySD"  resultType="com.baizhi.Lorry.entity.D_book">
+   <![CDATA[select * from D_book  ORDER BY sale_count desc,publish_time  desc]]>
+</select>
+
+<select id="queryBYId" parameterType="com.baizhi.Lorry.dao.BookDao" resultType="com.baizhi.Lorry.entity.D_book">
+select id,name,publish_company,publish_time,price,dd_price,img_url,rownum rn from  
+(select b.id,b.name,publish_company,publish_time,price,dd_price,img_url,rownum rn 
+from d_book b left join d_sort s on b.sort_id=s.id where
+<if test="id==null">s.pid=#{pid}</if>
+<if test="id!=null">s.id=#{id}</if>)where rn between #{page.start} and #{page.end}
+</select>
+  
+<select id="QueryBook" parameterType="java.lang.String"  resultType="com.baizhi.Lorry.entity.D_book">
+   <![CDATA[select * from D_book where id=#{id}]]>
+</select>  
+</mapper>

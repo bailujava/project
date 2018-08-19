@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="dao.TeacherDao" >
+   <select id="query" parameterType="java.lang.Integer" resultType="entity.Teacher">
+   select * from teacher where ID= #{id}
+   </select>
+   <delete id="delete" parameterType="java.lang.Integer">
+   delete teacher where ID=#{id}
+   </delete>
+   <insert id="add" parameterType="entity.Teacher">
+   insert into teacher values(#{id},#{name},#{married},#{birthday})
+   </insert>
+   <update id="undate" parameterType="entity.Teacher">
+   update teacher set name=#{name},marrried=#{married},birthday=#{birthday}
+   </update>
+</mapper>

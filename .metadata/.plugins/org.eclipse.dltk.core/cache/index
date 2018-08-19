@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ASCII"?>
+<cache:CacheIndex xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:cache="http://eclipse.org/dltk/cache_model" environment="org.eclipse.dltk.core.environment.localEnvironment">
+  <entries path="D:/workspace/ems/WebRoot/jquery-1.9.1.js" timestamp="1530579245413" lastAccessTime="1530579246203"/>
+  <entries path="D:/workspace/ems/WebRoot/jquery-1.8.3.js" timestamp="1530592587622" lastAccessTime="1530592588351"/>
+  <entries path="D:/workspace/ems/WebRoot/waibu.js" timestamp="1530610568554" lastAccessTime="1530610569144"/>
+  <entries path="D:/workspace/HHHUGG/images/research/js/research.js" timestamp="1461460854000" lastAccessTime="1531015904284"/>
+  <entries path="D:/workspace/HHHUGG/js/activeFormValidate.js" timestamp="1461460854000" lastAccessTime="1531015904437"/>
+  <entries path="D:/workspace/HHHUGG/js/addressForm.js" timestamp="1461460854000" lastAccessTime="1531015904563"/>
+  <entries path="D:/workspace/HHHUGG/js/jquery-1.4.min.js" timestamp="1461460854000" lastAccessTime="1531015905079"/>
+  <entries path="D:/workspace/HHHUGG/js/loginFormValidate.js" timestamp="1461460854000" lastAccessTime="1531015905402"/>
+  <entries path="D:/workspace/HHHUGG/js/registFormValidate.js" timestamp="1461460854000" lastAccessTime="1531015905511"/>
+  <entries path="D:/workspace/HHHUGG/js/verify.js" timestamp="1461460854000" lastAccessTime="1531015905625"/>
+  <entries path="D:/workspace/HHHUGG/product_files/cart_redist.js" timestamp="1461460854000" lastAccessTime="1531015905738"/>
+  <entries path="D:/workspace/HHHUGG/product_files/commvote.js" timestamp="1461460854000" lastAccessTime="1531015905860"/>
+  <entries path="D:/workspace/HHHUGG/product_files/loginwindow.js" timestamp="1461460854000" lastAccessTime="1531015906005"/>
+  <entries path="D:/workspace/HHHUGG/product_files/o_code.js" timestamp="1461460854000" lastAccessTime="1531015906166"/>
+  <entries path="D:/workspace/HHHUGG/product_files/pagetop20100419.js" timestamp="1461460854000" lastAccessTime="1531015906328"/>
+  <entries path="D:/workspace/HHHUGG/product_files/product.js" timestamp="1461460854000" lastAccessTime="1531015906480"/>
+  <entries path="D:/workspace/HHHUGG/product_files/recomend.js" timestamp="1461460854000" lastAccessTime="1531015906614"/>
+  <entries path="D:/workspace/HHHUGG/product_files/trace.js" timestamp="1461460854000" lastAccessTime="1531015906725"/>
+  <entries path="D:/workspace/furst/WebRoot/jquery-1.8.3.js" timestamp="1530592587622" lastAccessTime="1531015989567"/>
+  <entries path="D:/workspace/dangdang_LorryBai/WebRoot/images/research/js/research.js" timestamp="1531112617333" lastAccessTime="1531112618899"/>
+  <entries path="D:/workspace/dangdang_LorryBai/WebRoot/product_files/cart_redist.js" timestamp="1531112617499" lastAccessTime="1531112622002"/>
+  <entries path="D:/workspace/dangdang_LorryBai/WebRoot/product_files/commvote.js" timestamp="1531112617502" lastAccessTime="1531112622143"/>
+  <entries path="D:/workspace/dangdang_LorryBai/WebRoot/product_files/loginwindow.js" timestamp="1531112617516" lastAccessTime="1531112622302"/>
+  <entries path="D:/workspace/dangdang_LorryBai/WebRoot/product_files/o_code.js" timestamp="1531112617522" lastAccessTime="1531112622468"/>
+  <entries path="D:/workspace/dangdang_LorryBai/WebRoot/product_files/pagetop20100419.js" timestamp="1531112617525" lastAccessTime="1531112622648"/>
+  <entries path="D:/workspace/dangdang_LorryBai/WebRoot/product_files/product.js" timestamp="1531112617527" lastAccessTime="1531112622813"/>
+  <entries path="D:/workspace/dangdang_LorryBai/WebRoot/product_files/recomend.js" timestamp="1531112617534" lastAccessTime="1531112622947"/>
+  <entries path="D:/workspace/dangdang_LorryBai/WebRoot/product_files/trace.js" timestamp="1531112617542" lastAccessTime="1531112623059"/>
+  <entries path="D:/workspace/dangdang_LorryBai/WebRoot/js/jquery-1.9.1.js" timestamp="1531813882266" lastAccessTime="1531813884070"/>
+  <entries path="D:/workspace/dangdang_LorryBai/WebRoot/js/jquery-1.7.2.js" timestamp="1531814052679" lastAccessTime="1531814053442"/>
+  <entries path="D:/workspace/AJAX/WebRoot/jquery-1.9.1.js" timestamp="1531813882266" lastAccessTime="1531896336609"/>
+</cache:CacheIndex>

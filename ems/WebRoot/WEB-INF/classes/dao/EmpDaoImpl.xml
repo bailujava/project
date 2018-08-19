@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="dao.EmpDao" ><cache></cache>
+<resultMap id="r1" type="entity.Employee">
+<id column="id" property="id"/>
+<result column="name" property="name"/>
+<result column="salary" property="salary"/>
+<result column="hireDate" property="hireDate"/>
+<association property="dept" javaType="entity.Department">
+<id column="id" property="did"/>
+<result column="name" property="dname"/>
+</association>
+</resultMap>
+   <select id="query"  resultMap="r1">
+   select e.*,d.* from emp e left join dept d on e.did=d.id
+    <where> 
+    <if test="name!=null">e.name=#{name,jdbcType=VARCHAR}</if>
+    </where>
+   </select>
+    <select id="queryAll" resultType="entity.Employee">
+   <![CDATA[select id,name,salary,hiredate from emp]]>
+   </select>
+   <delete id="delete" >
+   delete from emp where id in
+   <foreach collection="list" item="deleteId" open="(" close=")" separator=",">
+   #{deleteId}
+   </foreach>
+   </delete>
+   <insert id="add" parameterType="entity.Employee">
+   <selectKey resultType="int" keyProperty="id" order="BEFORE">
+   select emp_sequence.nextval from dual
+   </selectKey>
+  <![CDATA[ insert into emp values(#{id},#{name},#{salary,jdbcType=NUMERIC},
+  #{hiredate,jdbcType=DATE},#{dept.id,jdbcType=NUMERIC})]]>
+   </insert>
+   <update id="update" parameterType="entity.Employee">
+   
+   update emp 
+   <set>
+    <if test="name!=null">name=#{name,jdbcType=VARCHAR},</if>
+    <if test="salary!=null">salary=#{salary,jdbcType=NUMERIC},</if>
+    <if test="hiredate!=null">hiredate=#{hiredate},</if>
+    <if test="dept.id!=null">dept=#{dept.id,jdbcType=NUMERIC}</if> where id=#{id}
+   </set>
+   
+   </update>
+   
+</mapper>

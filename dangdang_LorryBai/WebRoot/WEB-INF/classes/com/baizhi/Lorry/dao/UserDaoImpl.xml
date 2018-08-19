@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.baizhi.Lorry.dao.UserDao" >
+
+   <select id="query" resultType="com.baizhi.Lorry.entity.D_user">
+   <![CDATA[select * from d_user where email=#{email} and password=#{password}]]>
+   </select>
+    <select id="queryAll" resultType="com.baizhi.Lorry.entity.D_user">
+   <![CDATA[select * from d_user]]>
+   </select>
+   <delete id="delete" parameterType="java.lang.Integer">
+   <![CDATA[delete from d_user where ID=#{id}]]>
+   </delete>
+   <insert id="add" parameterType="com.baizhi.Lorry.entity.D_user">
+   <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE">
+   select s.nextval from dual
+   </selectKey>
+  <![CDATA[ insert into d_user(id,email,nickname,password) values(#{id},#{email},#{nickname},#{password})]]>
+   </insert>
+   <update id="update" parameterType="com.baizhi.Lorry.entity.D_user">
+   update d_user 
+     <set>
+    <if test="email!=null">email=#{email},</if>
+     <if test="nickname!=null">nickname=#{nickname},</if>
+     <if test="password!=null">password=#{password},</if>
+    </set>
+    where id=#{3} 
+   </update>
+</mapper>

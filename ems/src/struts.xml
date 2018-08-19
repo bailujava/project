@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+<package name="n1" extends="struts-default" namespace="/user">
+<global-results><result name="error">/jsp/error.jsp</result></global-results>
+<interceptors>
+<interceptor name="i1" class="action.Myinterceptor"></interceptor>
+<interceptor name="i2" class="action.Myinterceptor2"></interceptor>
+<interceptor-stack name="is1">
+<interceptor-ref name="defaultStack"></interceptor-ref>
+<interceptor-ref name="i1"></interceptor-ref>
+</interceptor-stack>
+</interceptors>
+<action name="sss" class="action.XXXXAction">
+<interceptor-ref name="is1"></interceptor-ref>
+<result name="success" type="ty">/jsp</result>
+</action>
+</package>
+ 
+</struts>

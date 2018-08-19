@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd" >
+<configuration>
+  <properties resource="conn.properties"></properties>
+ 
+   <environments default="d1">
+      <environment id="d1">
+         <transactionManager type="JDBC"></transactionManager>
+         <dataSource type="POOLED">
+           <property name="driver" value="${driver}"></property>
+           <property name="url"    value="${url}"></property>
+           <property name="username" value="${username}"></property>
+           <property name="password" value="${password}"/>
+         </dataSource>
+      </environment>
+	  
+   </environments>
+   
+   <mappers><mapper resource="dao/DempDaopImpl.xml"></mapper>
+            <mapper resource="dao/EmpDaopImpl.xml"></mapper>
+   </mappers>
+   
+</configuration>

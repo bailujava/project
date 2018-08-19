@@ -1,0 +1,14 @@
+#Mon Jul 23 08:59:39 CST 2018
+tomcat7Server.dangdang_LorryBai.shouldBackup=false
+tomcat7Server.dangdang_LorryBai.isExploded=true
+tomcat7Server.dangdang_LorryBai.IEARProjectName=
+tomcat7Server.dangdang_LorryBai.isUptoDate=true
+tomcat7Server.dangdang_LorryBai.isDeployed=true
+tomcat7Server.dangdang_LorryBai.deployIsOverProject=false
+tomcat7Server.dangdang_LorryBai.contextRoot=/dangdang_LorryBai
+eclipse.preferences.version=1
+tomcat7Server.dangdang_LorryBai.type=WebDeployment
+tomcat7Server.dangdang_LorryBai.noFileCopy=false
+tomcat7Server.dangdang_LorryBai.altContextRoot=
+tomcat7Server.dangdang_LorryBai.shouldOverwrite=false
+tomcat7Server.dangdang_LorryBai.deploymentPath=D\:\\apache-tomcat-7.0.64\\webapps\\dangdang_LorryBai

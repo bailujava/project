@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.baizhi.dao.EmployeeDao">
+       
+       <select id="queryAll" resultType="com.baizhi.entity.Employee">
+       		select * from employee
+       </select>
+    
+       <update id="update" parameterType="com.baizhi.entity.Employee">
+    		update employee set name=#{name},salary=#{salary},age=#{age} where id=#{id}
+    	</update>
+    	
+    
+    	<delete id="delete" parameterType="java.lang.Integer">
+    		delete  from employee where id=#{id}
+    	</delete>
+    	
+    	<insert id="add" parameterType="com.baizhi.entity.Employee">
+    	<selectKey order="BEFORE" keyProperty="id" resultType="int">
+    		select seq_t.nextval from dual
+    	</selectKey>
+    		insert into employee values(#{id},#{name},#{salary},#{age})
+    	</insert>
+</mapper>
+
+
+
+
+
+
+

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+
+   
+   
+   <package name="user" extends="struts-default" namespace="/user">
+  <global-results><result name="error">/jsp/HomePage.jsp</result></global-results>
+  
+   <action name="login" class="action.LoginAction" >
+   	<result name="success" type="redirectAction">
+   	<param name="namespace">/show</param>
+   	<param name="actionName">query</param>
+   	</result>
+   </action>
+   <action name="register" class="action.RegisterAction">
+  <result name="success">/jsp/HomePage.jsp</result>
+   </action>
+
+   </package>
+   
+   <package name="show" extends="struts-default" namespace="/show">
+     <interceptors><interceptor name="m1" class="action.MyInterceptor"></interceptor>
+     <interceptor-stack name="s1">
+     <interceptor-ref name="defaultStack"></interceptor-ref>
+     <interceptor-ref name="m1"></interceptor-ref>
+     </interceptor-stack>
+     </interceptors>
+      <action name="query" class="action.QueryAction">
+  	  <interceptor-ref name="s1"></interceptor-ref>
+  	 <result name="success">/jsp/query.jsp</result>
+  	
+   </action>
+   </package>
+   
+
+ 
+</struts>

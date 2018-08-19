@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="dao.DeptDao" >
+<cache></cache>
+
+   <select id="query" parameterType="java.lang.Integer" resultType="entity.Department">
+   <![CDATA[select * from dept where ID= #{id}]]>
+   </select>
+    <select id="queryAll" resultType="entity.Department">
+   <![CDATA[select * from dept]]>
+   </select>
+   <delete id="delete" parameterType="java.lang.Integer">
+   <![CDATA[delete from dept where ID=#{id}]]>
+   </delete>
+   <insert id="add" parameterType="entity.Department">
+   <selectKey keyProperty="id" resultType="int" order="BEFORE">
+    select t_user.nextval from dual;
+   </selectKey>
+  <![CDATA[ insert into dept values(#{id},#{name})]]>
+   </insert>
+   <update id="update" parameterType="entity.Department" >
+   <![CDATA[ 
+   update dept set name=#{name}where id=#{id}
+   ]]>
+   </update>
+
+</mapper>

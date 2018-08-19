@@ -1,0 +1,10 @@
+package dao;
+
+import entity.Teacher;
+
+public interface TeacherDao {
+public Teacher query(Integer i);
+public void add(Teacher t);
+public void delete(Integer i);
+public void update(Integer i);
+}

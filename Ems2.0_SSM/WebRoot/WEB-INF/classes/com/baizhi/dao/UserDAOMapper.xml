@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.baizhi.dao.UserDao">
+       
+       <select id="queryAll" resultType="com.baizhi.entity.User">
+       		select * from t_user
+       </select>
+    
+    	<select id="queryOne" resultType="com.baizhi.entity.User">
+    		select * from t_user where name=#{name} and password=#{password}
+    	</select>
+    	
+    	<insert id="add" parameterType="com.baizhi.entity.User">
+    	<selectKey order="BEFORE" keyProperty="id" resultType="int">
+    		select seq_t from dual
+    	</selectKey>
+    		insert into t_user values(#{id},#{name},#{password})
+    	</insert>
+</mapper>
+
+
+
+
+
+
+

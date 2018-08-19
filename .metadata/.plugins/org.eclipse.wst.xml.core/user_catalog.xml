@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+  <public publicId="-//Apache Software Foundation//DTD Struts Configuration 2.3//EN" uri="platform:/resource/account/struts-2.3.dtd" webURL="http://struts.apache.org/dtds/struts-2.3.dtd"/>
+  <public publicId="-//mybatis.org//DTD Mapper 3.0//EN" uri="file:///D:/Program%20Files/feiq/Recv%20Files/mybatis/资料/dtd/mybatis-3-mapper.dtd" webURL="http://mybatis.org/dtd/mybatis-3-mapper.dtd"/>
+  <uri name="http://www.springframework.org/schema/aop/spring-aop-4.2.xsd" uri="file:///D:/Program%20Files/feiq/Recv%20Files/schema/aop/spring-aop-4.2.xsd"/>
+  <uri name="http://www.springframework.org/schema/beans/spring-beans-4.2.xsd" uri="file:///D:/Program%20Files/feiq/Recv%20Files/schema/beans/spring-beans-4.2.xsd"/>
+  <uri name="http://www.springframework.org/schema/context/spring-context-4.2.xsd" uri="file:///D:/Program%20Files/feiq/Recv%20Files/schema/context/spring-context-4.2.xsd"/>
+  <uri name="http://www.springframework.org/schema/tx/spring-tx-4.2.xsd" uri="file:///D:/Program%20Files/feiq/Recv%20Files/schema/tx/spring-tx-4.2.xsd"/>
+</catalog>
