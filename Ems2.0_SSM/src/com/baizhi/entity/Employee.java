@@ -6,7 +6,7 @@ public class Employee {
 	private Double Salary;
 	private Integer age;
 	private String department_name;
-	public Employee() {
+	public Employee(int i, java.lang.String sjsj, double v, int i1, java.lang.String it) {
 		super();
 		// TODO Auto-generated constructor stub
 	}
