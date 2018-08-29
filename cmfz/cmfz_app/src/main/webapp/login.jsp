@@ -15,8 +15,8 @@
     <script type="text/javascript">
 
         $(function () {
-            $("#enCode").click(function () {
-                this.attr("href", "${pageContext.request.contextPath}/anquan/yanzhengma?date=" + new Date())
+            $("#captchaImage").click(function () {
+                $(this).attr("src", "${pageContext.request.contextPath}/anquan/yanzhengma.do?date=" + new Date())
             })
 
 

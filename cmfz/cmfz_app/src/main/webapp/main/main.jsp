@@ -1,4 +1,7 @@
 ﻿<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
+<%
+    request.setAttribute("path", request.getContextPath());
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -11,6 +14,50 @@
     <script type="text/javascript" src="../js/easyui-lang-zh_CN.js"></script>
     <script type="text/javascript">
         <!--菜单处理-->
+        $(function () {
+
+            $.ajax({
+                url: "${path}/menu/all.do",
+                type: "post",
+                dataType: "json",
+                success: function (data) {
+                    var cont = "";
+                    $.each(data, function (index, value) {
+
+                        $.each(value.menuList, function (index, subMenu) {
+                            cont += "<p style='text-align:center'><a href='javascript:void(0)' class='easyui-linkbutton' data-options='width:180' onclick=\"addTab('" + subMenu.icon + "','" + subMenu.title + "','" + subMenu.href + "')\">" + subMenu.title + "</a></p>";
+                        })
+
+                        $('#aa').accordion("add", {
+                            animate: true,
+                            title: value.title,
+                            content: cont,
+                        });
+
+                    })
+                }
+            })
+
+        })
+
+        function addTab(iconCls, title, href) {
+            var flag = $("#tt").tabs('exists', title);
+            if (!flag) {
+                $("#tt").tabs("add", {
+                    title: title,
+                    href: href,
+                    method: "POST",
+                    iconCls: iconCls,
+                    selected: true,
+                    closable: true
+                })
+            } else {
+                $("#tt").tabs('selected', title);
+            }
+
+        }
+
+
     </script>
 
 </head>
