@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.baizhi.dao.PictureDao">
+    <select id="queryAll" resultType="com.baizhi.entity.Picture">
+    SELECT  * FROM  picture
+</select>
+    <select id="queryY" resultType="com.baizhi.entity.Picture">
+    SELECT  * FROM  picture WHERE STATUS=Y
+</select>
+
+    <insert id="add" parameterType="com.baizhi.entity.Admin">
+    INSERT  INTO  picture(TITLE,IMGPATH,DESCRIPTION,STATUS,CREATEDATA) VALUES (#{title},#{imgPath},#{description},#{status},#{createDate})
+</insert>
+    <delete id="delete">
+        DELETE  FROM picture WHERE ID=#{id}
+    </delete>
+
+    <update id="update" parameterType="com.baizhi.entity.Picture">
+        UPDATE picture
+        <set>
+            <if test="title!=null">TITLE=#{title},</if>
+            <if test="imgPath!=null">IMGPATH=#{imgPath},</if>
+            <if test="description!=null">DESCRIPTION=#{description},</if>
+            <if test="status!=null">STATUS=#{description},</if>
+            <if test="createDate!=null">CREATEDATE=#{createDate},</if>
+        </set>
+        WHERE ID=#{id}
+    </update>
+</mapper>

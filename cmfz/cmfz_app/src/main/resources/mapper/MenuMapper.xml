@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.baizhi.dao.MenuDao">
+    <resultMap id="all" type="com.baizhi.entity.Menu">
+        <id column="ICON" property="icon"/>
+        <result column="TITLE" property="title"/>
+        <result column="HREF" property="href"/>
+        <collection property="list" ofType="com.baizhi.entity.Menu">
+            <id column="ICON1" property="icon"/>
+            <result column="TITLE1" property="title"/>
+            <result column="HREF1" property="href"/>
+        </collection>
+    </resultMap>
+
+    <select id="queryAll" resultMap="all">
+    SELECT  A.ICON,A.TITLE,A.HREF,B.ICON,B.TITLE,B.HREF  FROM  menu A LEFT  JOIN menu B on A.ID=B.PID WHERE  A.PID=0
+</select>
+
+    <insert id="add" parameterType="com.baizhi.entity.Menu">
+    INSERT  INTO  menu(TITLE,CONTENT,HREF,ICON,PID) VALUES (#{TITLE},#{CONTENT},#{HREF},#{ICON},#{PID})
+</insert>
+</mapper>
