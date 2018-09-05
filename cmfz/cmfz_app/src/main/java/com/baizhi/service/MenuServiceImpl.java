@@ -17,6 +17,7 @@ public class MenuServiceImpl implements MenuService {
     @Override
     public List<Menu> queryAll() {
         List<Menu> menus = menuDao.queryAll();
+        System.out.println("list in service = "+menus);
         return menus;
     }
 

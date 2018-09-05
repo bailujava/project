@@ -18,20 +18,21 @@
 
             $.ajax({
                 url: "${path}/menu/all.do",
-                type: "post",
-                dataType: "json",
+                type: "get",
+                dataType: "JSON",
                 success: function (data) {
                     var cont = "";
                     $.each(data, function (index, value) {
 
-                        $.each(value.menuList, function (index, subMenu) {
-                            cont += "<p style='text-align:center'><a href='javascript:void(0)' class='easyui-linkbutton' data-options='width:180' onclick=\"addTab('" + subMenu.icon + "','" + subMenu.title + "','" + subMenu.href + "')\">" + subMenu.title + "</a></p>";
+                        $.each(value.list, function (index, subMenu) {
+                            cont += "<p style='text-align: center'><a href='#' data-options=\"iconCls:'icon-search'\" class='easyui-linkbutton' onclick=\"addTabs('" + subMenu.icon + "','" + subMenu.title + "','" + subMenu.href + "')\">" + subMenu.title + "</a></p>";
                         })
 
                         $('#aa').accordion("add", {
-                            animate: true,
                             title: value.title,
+                            iconCls: value.icon,
                             content: cont,
+                            selected: false
                         });
 
                     })
@@ -40,19 +41,19 @@
 
         })
 
-        function addTab(iconCls, title, href) {
-            var flag = $("#tt").tabs('exists', title);
-            if (!flag) {
-                $("#tt").tabs("add", {
+        function addTabs(icon, title, href) {
+            /*创建选项卡*/
+            var flag = $("#tt").tabs("exists",title)
+            if (flag){
+                $("#tt").tabs("select",title)
+                console.log(href)
+            }else {
+                $('#tt').tabs('add', {
                     title: title,
-                    href: href,
-                    method: "POST",
-                    iconCls: iconCls,
                     selected: true,
-                    closable: true
-                })
-            } else {
-                $("#tt").tabs('selected', title);
+                    closable: true,
+                    href:"${pageContext.request.contextPath}"+href
+                });
             }
 
         }

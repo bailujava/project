@@ -22,7 +22,8 @@ public class MenuController {
     public Object queryAll() {
 
         List<Menu> menus = menuService.queryAll();
-        System.out.println(menus);
+
+        System.out.println(menus.size());
         logger.debug(menus.toString());
         return menus;
     }
