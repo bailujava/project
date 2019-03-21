@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "http://mybatis.org/dtd/mybatis-3-mapper.dtd" "mybatis-3-mapper.dtd" >
+<mapper namespace="tv.buka.dao.UserMapper">
+    <select id="login" parameterType="java.util.Map" resultType="tv.buka.pojo.vo.LoginReturn">
+        SELECT
+        b.user_id AS id,b.user_phone_num AS username,b.user_password AS `password`,b.user_nickname AS nickname,b.user_department AS department,u.`role_id` AS role,b.`main_user_id` AS create_id
+        FROM buka_user b LEFT JOIN user_role u ON b.`user_id`=u.`user_id` and b.disable=0
+        WHERE b.user_phone_num=#{username} and b.user_password=#{password}
+    </select>
+</mapper>

@@ -223,7 +223,7 @@ Contains 25 rows. References with jobs, employees, and departments tables.</Comm
       <Comment>Locations table that contains specific address of a specific office,
 warehouse, and/or production site of a company. Does not store addresses /
 locations of customers. Contains 23 rows; references with the
-departments and countries tables. </Comment>
+departments and countries tables.</Comment>
       <CreatedTimestamp>2006-02-08.06:52:56</CreatedTimestamp>
       <ModifiedTimestamp>2006-02-08.06:52:59</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>
@@ -402,7 +402,7 @@ departments and countries tables. </Comment>
       <Position>2</Position>
       <Comment>A not null column that shows name of a department. Administration,
 Marketing, Purchasing, Human Resources, Shipping, IT, Executive, Public
-Relations, Sales, Finance, and Accounting. </Comment>
+Relations, Sales, Finance, and Accounting.</Comment>
       <DataType>VARCHAR2(30 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
@@ -1314,13 +1314,13 @@ Contains building number and street name</Comment>
     <column id="224" parent="41" name="POSTAL_CODE">
       <Position>3</Position>
       <Comment>Postal code of the location of an office, warehouse, or production site
-of a company. </Comment>
+of a company.</Comment>
       <DataType>VARCHAR2(12 byte)|0s</DataType>
     </column>
     <column id="225" parent="41" name="CITY">
       <Position>4</Position>
       <Comment>A not null column that shows city where an office, warehouse, or
-production site of a company is located. </Comment>
+production site of a company is located.</Comment>
       <DataType>VARCHAR2(30 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
